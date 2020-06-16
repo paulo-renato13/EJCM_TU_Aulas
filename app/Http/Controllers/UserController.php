@@ -20,7 +20,7 @@ class UserController extends Controller
       $users = User::all();
 
       if ($users) {
-        return response()->json([$users]);
+        return response()->json(['users' => $users]);
       } else {
         return response()->error($data, 400);
       }
@@ -38,7 +38,7 @@ class UserController extends Controller
     
     $user->createUser($request);
       
-      return response()->json([$user]);
+      return response()->json(['user' => $user]);
   }
 
   /**
@@ -52,7 +52,7 @@ class UserController extends Controller
       $user = User::findOrFail($id);
 
       if ($user) {
-        return response()->json([$user]);
+        return response()->json(['user' => $user]);
       } else {
         return response()->error($data, 400);
       }
@@ -81,7 +81,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return response()->json([$user]);
+        return response()->json(['user' => $user]);
     } else {
         return response()->error($data, 400);
     }

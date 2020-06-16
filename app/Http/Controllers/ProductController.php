@@ -18,7 +18,7 @@ class ProductController extends Controller
         $products = Product::all();
 
         if ($products){
-          return response()->json([$products]);
+          return response()->json(['products' => $products]);
         } else {
           return response()->error($data, 400);
         }
@@ -40,7 +40,7 @@ class ProductController extends Controller
 
         $product->save();
 
-        return response()->json([$product]);
+        return response()->json(['product' => $product]);
 
     }
 
@@ -55,7 +55,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
 
         if ($product) {
-          return response()->json([$product]);
+          return response()->json(['product' => $product]);
         } else {
           return response()->error($data, 400);
         }
@@ -82,7 +82,7 @@ class ProductController extends Controller
 
         $product->save();
 
-        return response()->json([$product]);
+        return response()->json(['product' => $product]);
       } else {
         return response()->error($data,400);
       }
